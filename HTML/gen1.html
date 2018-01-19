@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../CSS/ingame.css">
+    <title>Pokémon G1</title>
+
+</head>
+
+<body>
+    <div class="game">
+
+        <div class="pokemonMenu" id="pokemonMenu">
+            <img width="480" height="224" src="https://orig00.deviantart.net/fd1f/f/2014/323/2/0/x_and_y_menu_background_1_by_phoenixoflight92-d86y3jj.png">
+            
+            <a onclick="chosePokemon(Pikachu)"><div id="mainP">
+                <img width="60" height="60" src="https://cdn.bulbagarden.net/upload/0/0f/025MS.png">
+            </div></a>
+            
+            <a onclick="chosePokemon(Charizard)"><div id="pTwo" class="pokemon">
+                <img src="https://cdn.bulbagarden.net/upload/0/01/006MS.png">
+                
+            </div></a>
+            
+            <a onclick="chosePokemon(Blastoise)"><div id="pThree" class="pokemon">
+                <img src="https://cdn.bulbagarden.net/upload/c/cb/009MS.png">                        
+            </div></a>
+            
+            <a onclick="chosePokemon(Venusaur)"><div id="pFour" class="pokemon">
+                <img src="https://cdn.bulbagarden.net/upload/d/df/003MS.png">                                            
+            </div></a>
+                                                                                                                                    
+        </div>
+
+        <div class="screen">
+            <div class="wildStats">
+                <a id="pwName" class="Name">POKEMON NAME</a>
+                <a id="pwLvL" class="LvL">Lv100</a>
+                <div id="pwHP" class="HP"><div class="backBar"><div id="pwBar" class="Bar"></div></div>HP</div>            
+            </div>
+            <div class="wildPokemon"> 
+                <img id='wPokemon'> 
+            </div>
+
+            <div class="myStats">
+                <a id="pName" class="Name">POKEMON NAME</a>
+                <a id="pLvL" class="LvL">Lv100</a>
+                <div id="pHP" class="HP"><div class="backBar"><div id="pBar" class="Bar"></div></div>HP</div>             
+            </div>
+            <div class="myPokemon">
+                <img id='tPokemon'>  
+            </div> 
+            <img class="screenBackground" id="backgrnd" width="480" height="224">
+        </div>
+        
+        <div class="actionBar">
+            <div class="textDisplay" id="textDisplay">                
+                <p id="dispText"></p>
+            </div>
+            <div class="attacks">
+                <table class="tOne">
+                    <tr>
+                        <td class="mod"><a onclick="attackOne()" onmouseover="dispOne()" id="aOne"></a> </td>
+                        <td class="mod"><a onclick="attackTwo()" onmouseover="dispTwo()" id="aTwo"></a> </td>
+                    </tr>
+                    <tr>
+                        <td class="mod"><a onclick="attackThree()" onmouseover="dispThree()" id="aThree"></a> </td>
+                        <td class="mod"><a onclick="attackFour()" onmouseover="dispFour()" id="aFour"></a> </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="stats" id="stats">
+                <table  class="tThree">
+                    <tr>
+                        <td align="left" id="PP"><!--PP:--></td>
+                        <td align="right" id="ppAmount"><!--15/15--></td>
+                    </tr>
+                    <tr>
+                        <td align="left" id="Type"><!--Type:--></td>
+                        <td align="right" id="typeText"><!--Ground/Water--></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="commands">
+                <table  class="tTwo">
+                    <tr>
+                        <td class="mod"><a onclick="Fight()">Fight</a></td>
+                        <td class="mod"><a onclick="Item()">Item</a></td>
+                    </tr>
+                    <tr>
+                        <td class="mod"><a onclick="Pokemon()">Pokémon</a></td>
+                        <td class="mod"><a onclick="Run()">Run</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div> 
+    </div>
+
+    <script src="../JS/Pokemon Object.js"></script>
+    <script src="../JS/G1 Init.js"></script> 
+    <script src="../JS/G1 Logic.js"></script>
+
+</body>
+</html>

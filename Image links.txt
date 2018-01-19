@@ -1,4 +1,4 @@
-/* G1-Pokemons:
+G1-Pokemons:
     Venusaur:   https://cdn.bulbagarden.net/upload/6/60/Spr_b_4d_003_m.png
     Charizard:  https://cdn.bulbagarden.net/upload/f/f7/Spr_b_4d_006.png
     Blastois:   https://cdn.bulbagarden.net/upload/8/89/Spr_b_4d_009.png
@@ -8,9 +8,8 @@
     Zapdos:     https://cdn.bulbagarden.net/upload/archive/5/5b/20091107201149%21Spr_4h_145.png
     Moltres:    https://cdn.bulbagarden.net/upload/archive/3/3c/20100501181515%21Spr_4d_146.png
     Mewtwo:     https://cdn.bulbagarden.net/upload/archive/5/53/20100501173542%21Spr_4d_150.png
-*/
 
-/* G2-Pokemons:
+G2-Pokemons:
     Meganium:   https://cdn.bulbagarden.net/upload/b/bd/Spr_b_4d_154_m.png
     Typhlosion: https://cdn.bulbagarden.net/upload/5/5a/Spr_b_4d_157.png
     Feraligatr: https://cdn.bulbagarden.net/upload/5/53/Spr_b_4h_160.png
@@ -20,11 +19,9 @@
     Raikou:     https://cdn.bulbagarden.net/upload/archive/1/1c/20100501193127%21Spr_4d_243.png
     Entei:      https://cdn.bulbagarden.net/upload/archive/a/ad/20100501195433%21Spr_4d_244.png
     Lugia:      https://cdn.bulbagarden.net/upload/archive/e/e2/20100501203124%21Spr_4d_249.png
-*/
 
-/* Battle Schenes:
+Battle Schenes:
     Cave:       http://www.pokemontopaz.net/uploads/misc/battlecave.png
     Grass:      http://www.pokemontopaz.net/uploads/misc/battlegrass.png
     Night:      http://www.pokemontopaz.net/uploads/misc/battlegrassnight.png
-    Water:      http://www.pokemontopaz.net/uploads/misc/battlewater.png 
-*/
+    Water:      http://www.pokemontopaz.net/uploads/misc/battlewater.png
