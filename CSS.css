@@ -1,0 +1,41 @@
+body{
+    background-image: url('https://i.pinimg.com/originals/d8/b7/69/d8b769156596164069119889c071246b.jpg');
+    font-size: 16px;
+}
+
+img{
+    width: 40%;
+}
+
+p{
+    border: 5px solid #3c5aa6;
+    border-radius: 20px;
+    background-color: #ffcb05;
+    color: #2a75bb;
+    display: inline-block;
+    clear: both;
+    font-weight: bold;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.text{
+    position: relative;
+    left: 20%;
+}
+
+.pix{
+    position: relative;
+    left: 5%;
+}
+
+@media (min-width: 800px)
+{
+       body
+       {
+           font-size: 16px; 
+       }
+       p
+       {
+           font-size:60px;
+       }
+}

@@ -1,0 +1,273 @@
+body{
+    background-image: url('https://i.imgur.com/qP06YY4.jpg');
+}
+
+.game{
+    /* position: relative;
+    left: 25%; */
+    position: relative;
+    border: 10px inset #3c5aa6;
+    width: 477px;
+    height: 309px;
+    margin: auto;
+}
+
+.screen{
+    z-index: 9;
+    width: 475px;
+    height: 225px;
+}
+
+.tOne{
+    width: 285px;
+    height: 70px;
+}
+
+.tTwo{
+    width: 165px;
+    height: 70px;
+}
+
+.mod{
+    border: 1px solid black;
+    width: 50%;
+    border-radius: 10px;
+    color: white;
+    background: linear-gradient(gray, black);
+    font-size: 18px;
+    -webkit-text-stroke: .5px;
+    -webkit-text-stroke-color: rgb(255, 82, 82);
+    text-align: center;
+    font-weight: bold;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.mod:hover{
+    background: rgb(255, 82, 82);
+    -webkit-text-stroke: 0px;
+    -webkit-text-stroke-color: black;
+    cursor: pointer;
+}
+
+.attacks{
+    /* padding-left: 10px; */
+    position: absolute;
+    border: 3px ridge rgb(255, 82, 82);
+    background-color: rgb(90, 90, 90); 
+    float: left;
+    z-index: 9;
+}
+
+.textDisplay{
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: rgb(90, 90, 90); 
+    width: 285px;
+    height: 70px;
+    z-index: 10;
+}
+
+.commands{
+    /* padding-left: 10px; */
+    position: absolute;
+    left: 63.5%;
+    border: 3px ridge rgb(255, 82, 82);
+    background-color: rgb(90, 90, 90); 
+    float: right;
+    width: 165px;
+    z-index: 9;
+}
+
+.stats{
+    position: absolute;
+    width: 145px;
+    height: 50px;
+    padding: 10px;
+    left: 64%;
+    top: 8px;
+    background-color: white; 
+    z-index: 1;
+}
+
+.actionBar{
+    margin-top: -3px;
+    padding: 5px;
+    border: 1px solid black;
+    /* border-left: 0px; */
+    background-color: rgb(90, 90, 90);
+    position: relative;
+    display: inline-block;
+    height: 75px;
+    width: 465px;
+}
+
+.screenBackground{
+    z-index: 1;
+    border: 1px solid black;
+    position: relative;
+    top: -71.5%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.wildPokemon{
+    z-index: 9;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    top: 10%;
+    left: 78%;
+}
+
+.myPokemon{
+    z-index: 9;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    top: 30%;
+    left: 7%;
+}
+
+.wildStats{
+    padding: 5px; 
+    position: absolute;
+    top: 5%;
+    left: 15%;
+    width: 200px;
+    height: 50px;
+    border: 3px solid rgb(87, 87, 87);
+    background-color: rgb(245, 228, 198); 
+    z-index: 9;
+    border-radius: 10px 0px 10px 0px;
+}
+
+.myStats{
+    padding: 5px; 
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    width: 200px;
+    height: 50px;
+    border: 3px solid rgb(87, 87, 87);
+    background-color: rgb(245, 228, 198); 
+    z-index: 9;
+    border-radius: 10px 0px 10px 0px;
+}
+
+.Name{
+    color: rgb(87, 87, 87);
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+.LvL{
+    color: rgb(87, 87, 87);
+    margin-left: 20px; 
+    float: right;
+    padding-right: 10px;
+}
+
+.HP{
+    position: relative;
+    top: 5px;;
+    left: 40px;
+    padding-left: 4px;
+    padding-top: 2px;
+    width: 75%;
+    border: 2px solid rgb(87, 87, 87);
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 10px; 
+    color: rgb(253, 173, 0);
+    background-color: rgb(87, 87, 87);
+}
+
+.backBar{
+    position: absolute;
+    background-color: white;
+    left: 25px;
+    border-radius: 10px;
+    width: 127px;
+    height: 75%;
+}
+
+.Bar{
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    height: 50%; 
+    border-radius: 10px;
+    animation-name: dmg; 
+    animation-duration: 3s;
+}
+
+#pwBar{
+    width: 120px;
+    background-color: rgb(81, 255, 122);
+}
+
+#pBar{
+    width: 120px;
+    background-color: rgb(81, 255, 122);
+}
+
+#dispText{
+    color: white;
+    font-weight: bold;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    overflow: wrap;
+    width: 285px;
+    height: 70px;
+    -webkit-text-stroke: .5px;
+    -webkit-text-stroke-color: rgb(255, 82, 82);
+}
+
+.pokemonMenu{
+    position: absolute;
+    z-index: 1;
+}
+
+.pokemon{
+    position: relative;
+    top: -210px;
+    width: 250px;
+    border: 2px solid rgb(87, 87, 87); 
+    background: linear-gradient(rgb(0, 81, 255), rgb(0, 174, 255));
+    float: right;
+    margin-top: 5px;
+    margin-right: 10px; 
+    border-radius: 5px;
+}
+
+#mainP{    
+    top: -210px;
+    position: relative;
+    width: 150px;
+    height: 110px;
+    border: 2px solid rgb(255, 94, 0); 
+    background: linear-gradient(rgb(0, 153, 255), rgb(100, 232, 255));
+    float: left;
+    margin-top: 15px;
+    margin-left: 10px; 
+    border-radius: 5px;
+}
+
+.pokemon:hover{
+    cursor: pointer;
+    background: linear-gradient(rgb(64, 210, 255), rgb(67, 129, 253));
+}
+
+#mainP:hover{
+    cursor: pointer;
+    background: linear-gradient(rgb(64, 210, 255), rgb(0, 81, 255));
+}
+
+@keyframes dmg{
+
+    0%{width: 0; background-color: red;}
+    25%{width: 30; background-color: orangered}
+    50%{width: 60; background-color: yellow;}
+    75%{width: 90; background-color: rgb(81, 255, 122);}
+    100%{width: 120; background-color: rgb(81, 255, 122);}
+}
