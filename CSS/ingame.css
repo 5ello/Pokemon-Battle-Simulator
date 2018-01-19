@@ -263,11 +263,11 @@ body{
     background: linear-gradient(rgb(64, 210, 255), rgb(0, 81, 255));
 }
 
-@keyframes dmg{
+/* @keyframes dmg{
 
     0%{width: 0; background-color: red;}
     25%{width: 30; background-color: orangered}
     50%{width: 60; background-color: yellow;}
     75%{width: 90; background-color: rgb(81, 255, 122);}
     100%{width: 120; background-color: rgb(81, 255, 122);}
-}
+} */

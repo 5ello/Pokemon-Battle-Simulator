@@ -29,6 +29,8 @@ var wName = document.getElementById('pwName');
 var getAttacks = document.getElementById('textDisplay');
 var getStats = document.getElementById('stats');
 var getPokemon = document.getElementById('pokemonMenu');
+var enemyPokemonHPBar = document.getElementById('pwBar').offsetWidth;
+
 
 var Venusaur = new Pokemon('Venusaur', 'Grass', 'Poison', 270, 152, 153, 148, 0, 'Hyper Beam', 'Petal Dance', 'Solarbeam', 'Double-Edge', 'Normal', 'Grass', 'Grass', 'Normal', 5, 10, 10, 15, 90, 100, 100, 100, 150, 120, 120, 120);
 var Charizard = new Pokemon('Charizard', 'Fire', 'Flying', 266, 155, 144, 184, 1, 'Flamethrower', 'Fire Blast', 'Fly', 'Dragon Claw', 'Fire', 'Fire', 'Flying', 'Dragon', 15, 5, 15, 15, 100, 85, 95, 100, 90, 110, 90, 80);
