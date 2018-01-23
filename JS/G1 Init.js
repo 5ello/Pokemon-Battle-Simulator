@@ -16,21 +16,22 @@ var backgrounds = [
     'http://www.pokemontopaz.net/uploads/misc/battlewater.png'       //Water
 ];
 
-var myTurn = true;
-var getPP = document.getElementById('PP');
-var getPPnumber = document.getElementById('ppAmount');
-var getType = document.getElementById('Type');
-var getTypeText = document.getElementById('typeText');
-var backgrnd = document.getElementById('backgrnd');
-var tPokemon = document.getElementById('tPokemon');
-var tName = document.getElementById('pName');
-var wPokemon = document.getElementById('wPokemon');
-var wName = document.getElementById('pwName');
-var getAttacks = document.getElementById('textDisplay');
-var getStats = document.getElementById('stats');
-var getPokemon = document.getElementById('pokemonMenu');
-var enemyPokemonHPBar = document.getElementById('pwBar').offsetWidth;
-
+var myTurn = true; //Variable to manipulate turns.
+var getPP = document.getElementById('PP'); //Fetches the text area to display the amount of total PP of a pokemon.
+var getPPnumber = document.getElementById('ppAmount');  //Fetches the text area to display the amount of PP left.
+var getType = document.getElementById('Type');  //Fetches the text area to display the Type.
+var getTypeText = document.getElementById('typeText'); //Fetches the text area to display the type of the move hovered over.
+var backgrnd = document.getElementById('backgrnd'); //Fetches the img that displays the battle background.
+var tPokemon = document.getElementById('tPokemon'); //Fetches the div that holds the immage of the Trainer pokemon.
+var wPokemon = document.getElementById('wPokemon'); //Fetches the div that holds the immage of the Wild pokemon.
+var tName = document.getElementById('pName'); //Fetches the text that holds the name of the Trainer pokemon.
+var wName = document.getElementById('pwName'); //Fetches the text that holds the name of the Wild pokemon.
+var getTextBox = document.getElementById('textDisplay'); //Div that displays Messages.
+var getStats = document.getElementById('stats'); //Div that displays the stats of pokemon moves.
+var getPokemonMenu = document.getElementById('pokemonMenu'); //Fetches the img that displays the pokemon Menu.
+var enemyPokemonHPBar = document.getElementById('pwBar').offsetWidth; //HP bar of the wild pokemon.
+var message = document.getElementById('dispText'); //This is the text that is displayed after every move.
+var messageQueue = []; //A queue to manage message order to be displayed on the screen.
 
 var Venusaur = new Pokemon('Venusaur', 'Grass', 'Poison', 270, 152, 153, 148, 0, 'Hyper Beam', 'Petal Dance', 'Solarbeam', 'Double-Edge', 'Normal', 'Grass', 'Grass', 'Normal', 5, 10, 10, 15, 90, 100, 100, 100, 150, 120, 120, 120);
 var Charizard = new Pokemon('Charizard', 'Fire', 'Flying', 266, 155, 144, 184, 1, 'Flamethrower', 'Fire Blast', 'Fly', 'Dragon Claw', 'Fire', 'Fire', 'Flying', 'Dragon', 15, 5, 15, 15, 100, 85, 95, 100, 90, 110, 90, 80);
@@ -46,15 +47,9 @@ var currentPokemon = Pikachu;
 var currentWild = Articuno;
 
 backgrnd.src = backgrounds[3];
-tPokemon.src = pokemons[3];
-tName.innerHTML = "Pikachu";
-wPokemon.src = pokemons[4];
-wName.innerHTML = "Articuno";
-
 tPokemon.src = pokemons[currentPokemon.imgNumber];
 tName.innerHTML = currentPokemon.name;
-
 wPokemon.src = pokemons[currentWild.imgNumber];
 wName.innerHTML = currentWild.name;
 
-document.getElementById('dispText').innerHTML = "What will you do?"; 
+message.innerHTML = "What will you do?"; 

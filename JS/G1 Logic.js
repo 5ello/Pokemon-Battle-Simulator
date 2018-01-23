@@ -1,8 +1,7 @@
 function Fight(){
-
-    getAttacks.style.zIndex = 1;
+    getTextBox.style.zIndex = 1;
     getStats.style.zIndex = 10;
-    getPokemon.style.zIndex = 1;
+    getPokemonMenu.style.zIndex = 1;
 
     var aOne = document.getElementById('aOne');
     var aTwo = document.getElementById('aTwo');
@@ -16,7 +15,6 @@ function Fight(){
 }
 
 // function displayStats(xxx, yyy, zzz){
-
 //     console.log(currentPokemon.xxx +", "+yyy +", "+ zzz);
 //     getPP.innerHTML = 'PP:';
 //     getPPnumber.innerHTML = currentPokemon.xxx + "/" + currentPokemon.yyy;
@@ -65,35 +63,37 @@ function clear(){
 }
 
 function Item(){
+    message.innerHTML = "There are no items currently, might develop that in the future!";
+}
 
-    document.getElementById('dispText').innerHTML = "There are no items currently, might develop that in the future!";
+function Run(){  
+    message.innerHTML = "You can not run from this Fight!!!";    
 }
 
 function Pokemon(){
     clear();
-    document.getElementById('dispText').innerHTML = "Chose a pokemon...";
+    message.innerHTML = "Chose a pokemon...";
     getStats.style.zIndex = 10;
-    getPokemon.style.zIndex = 10;
-}
-
-function Run(){
-    
-    document.getElementById('dispText').innerHTML = "You can not run from this Fight!!!";    
+    getPokemonMenu.style.zIndex = 10;
 }
 
 function chosePokemon(Choice){
     
-    document.getElementById('dispText').innerHTML = "What will you do?";    
+    message.innerHTML = "What will you do?";    
     currentPokemon = Choice;
     tPokemon.src = pokemons[currentPokemon.imgNumber];
     tName.innerHTML = currentPokemon.name;
-    getPokemon.style.zIndex = 1;
+    getPokemonMenu.style.zIndex = 1;
     getStats.style.zIndex = 1;
     myTurn = false;
 }
 
 function attackOne(){
-    
+
+    getTextBox.style.zIndex = 10;
+    getStats.style.zIndex = 1;
+    clear();
+
     if(currentPokemon.ppc1 != 0){
         currentPokemon.ppc1--;
 
@@ -101,44 +101,51 @@ function attackOne(){
         var totalHP = currentWild.HP;
         var percentage;
         var decrease;
+        var crit = Math.floor((Math.random() * 10) + 1);
+        var dmg = 0;
 
-        totalDmg = (currentPokemon.attack + currentPokemon.pwr1) - currentWild.defense;
+        if(crit == 1 || crit == 2 || crit == 3)
+            dmg = currentPokemon.attack * 2;
+        else
+            dmg = currentPokemon.attack;
+
+        totalDmg = (dmg + currentPokemon.pwr1) - currentWild.defense;
         currentWild.cHP = currentWild.cHP - totalDmg;
         percentage = (currentWild.cHP/totalHP) * 100;
         decrease = 100 - percentage;
 
-        // console.log(totalDmg);
-        // console.log(currentWild.cHP + " / " + totalHP);
-        // console.log(decrease);
-
-        // console.log(enemyPokemonHPBar);
-
-        attackRNG(currentPokemon.acc1, decrease);
+        attackRNG(currentPokemon.acc1, decrease, crit);
     }
     else
-        console.log("No more PP");
+        message.innerHTML = "No more PP";//console.log("No more PP");
 }
 
-function attackRNG(RNG, decrease){
+function attackRNG(RNG, decrease, crit){
 
-    var x = Math.floor((Math.random() * 10) + 1);
+    var accuracy = Math.floor((Math.random() * 10) + 1);
     var attk = false;
-    console.log("RNG%: " + x);
+    console.log("RNG%: " + accuracy);
     for(var i = 1; i <= (RNG/10); i++){
-        if(i == x)
+        if(i == accuracy)
             attk = true;
     }
 
     if(attk == true){
-        console.log("Attack hit!!!");
+        messageQueue.push("Attack hit!!!");
+
+        if(crit == 1 || crit == 2 || crit == 3)
+            messageQueue.push("Critical Attack!!!");
+        //message.innerHTML = "Attack hit!!!";//console.log("Attack hit!!!");
         document.getElementById('pwBar').style.width = (enemyPokemonHPBar - decrease) + "px";
         if(currentWild.cHP <= 0){
             document.getElementById('pwBar').style.width = "0px";
-            console.log("Enemy " + currentWild.name + " fainted!");
+            messageQueue.push("Enemy " + currentWild.name + " fainted!")
+            //message.innerHTML = "Enemy " + currentWild.name + " fainted!";//console.log("Enemy " + currentWild.name + " fainted!");
         }
+        dispNew();
     }
     else
-        console.log("Attack missed!!!");
+        message.innerHTML = "Attack missed!!!";//console.log("Attack missed!!!");
 }
 
 function attackTwo(){
@@ -151,4 +158,25 @@ function attackThree(){
 
 function attackFour(){
     currentPokemon.ppc4--;
+}
+
+function dispNew(){
+    console.log("Clicked!!");
+    console.log(messageQueue.length);
+
+    if(messageQueue.length == 0){
+        // console.log("Before: " + getStats.style.zIndex);
+        // console.log("Before: " + getTextBox.style.zIndex);
+        // console.log("Before: " + getPokemonMenu.style.zIndex);
+        // getStats.style.zIndex == 10;
+        // getTextBox.style.zIndex == 10;
+        // getPokemonMenu.style.zIndex == 10;
+        // console.log("After: " + getStats.style.zIndex);
+        // console.log("After: " + getTextBox.style.zIndex);
+        // console.log("After: " + getPokemonMenu.style.zIndex);
+        message.innerHTML = "What will you do?";
+    }
+    else
+        message.innerHTML = messageQueue.shift() + "";
+        
 }
