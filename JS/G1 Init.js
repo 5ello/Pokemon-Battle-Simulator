@@ -30,8 +30,10 @@ var getTextBox = document.getElementById('textDisplay'); //Div that displays Mes
 var getStats = document.getElementById('stats'); //Div that displays the stats of pokemon moves.
 var getPokemonMenu = document.getElementById('pokemonMenu'); //Fetches the img that displays the pokemon Menu.
 var enemyPokemonHPBar = document.getElementById('pwBar').offsetWidth; //HP bar of the wild pokemon.
+var myPokemonHPBar = document.getElementById('pBar').offsetWidth; //HP bar of my pokemon.
 var message = document.getElementById('dispText'); //This is the text that is displayed after every move.
 var messageQueue = []; //A queue to manage message order to be displayed on the screen.
+var wMessageQueue = [] //Message queue for enemy pokemon.
 
 var Venusaur = new Pokemon('Venusaur', 'Grass', 'Poison', 270, 152, 153, 148, 0, 'Hyper Beam', 'Petal Dance', 'Solarbeam', 'Double-Edge', 'Normal', 'Grass', 'Grass', 'Normal', 5, 10, 10, 15, 90, 100, 100, 100, 150, 120, 120, 120);
 var Charizard = new Pokemon('Charizard', 'Fire', 'Flying', 266, 155, 144, 184, 1, 'Flamethrower', 'Fire Blast', 'Fly', 'Dragon Claw', 'Fire', 'Fire', 'Flying', 'Dragon', 15, 5, 15, 15, 100, 85, 95, 100, 90, 110, 90, 80);
@@ -46,10 +48,22 @@ var Mewtwo = new Pokemon('Mewtwo', 'Psychic', 'Null', 322, 202, 166, 238, 7, 'Ps
 var currentPokemon = Pikachu;
 var currentWild = Articuno;
 
+function turnDet(){
+    if(currentPokemon.speed > currentWild.speed)
+        myTurn = true;
+    else
+        myTurn = false;
+}
+
 backgrnd.src = backgrounds[3];
 tPokemon.src = pokemons[currentPokemon.imgNumber];
 tName.innerHTML = currentPokemon.name;
 wPokemon.src = pokemons[currentWild.imgNumber];
 wName.innerHTML = currentWild.name;
+
+turnDet();
+
+console.log("My Pokemon speed: " + currentPokemon.speed);
+console.log("Wild Pokemon speed: " + currentWild.speed);
 
 message.innerHTML = "What will you do?"; 
