@@ -10,10 +10,10 @@ var pokemons = [
 ];
 
 var backgrounds = [
-    'http://www.pokemontopaz.net/uploads/misc/battlecave.png',       //Cave
-    'http://www.pokemontopaz.net/uploads/misc/battlegrass.png',      //Grass
-    'http://www.pokemontopaz.net/uploads/misc/battlegrassnight.png', //Night
-    'http://www.pokemontopaz.net/uploads/misc/battlewater.png'       //Water
+    'http://www.pokemontopaz.net/uploads/misc/battlewater.png',       //Water
+    'http://www.pokemontopaz.net/uploads/misc/battlecave.png',        //Cave
+    'http://www.pokemontopaz.net/uploads/misc/battlegrass.png',       //Grass
+    'http://www.pokemontopaz.net/uploads/misc/battlegrassnight.png'   //Night
 ];
 
 var myTurn = true; //Variable to manipulate turns.
@@ -33,7 +33,11 @@ var enemyPokemonHPBar = document.getElementById('pwBar').offsetWidth; //HP bar o
 var myPokemonHPBar = document.getElementById('pBar').offsetWidth; //HP bar of my pokemon.
 var message = document.getElementById('dispText'); //This is the text that is displayed after every move.
 var messageQueue = []; //A queue to manage message order to be displayed on the screen.
-var wMessageQueue = [] //Message queue for enemy pokemon.
+var wMessageQueue = []; //Message queue for enemy pokemon.
+var enemyAttacked = false; //Boolean variable to check if the enemy attacked or not.
+var enemyNotAttacked = true;
+var Stages = 1; //Keeps track of current stages.
+var fainted = false;
 
 var Venusaur = new Pokemon('Venusaur', 'Grass', 'Poison', 270, 152, 153, 148, 0, 'Hyper Beam', 'Petal Dance', 'Solarbeam', 'Double-Edge', 'Normal', 'Grass', 'Grass', 'Normal', 5, 10, 10, 15, 90, 100, 100, 100, 150, 120, 120, 120);
 var Charizard = new Pokemon('Charizard', 'Fire', 'Flying', 266, 155, 144, 184, 1, 'Flamethrower', 'Fire Blast', 'Fly', 'Dragon Claw', 'Fire', 'Fire', 'Flying', 'Dragon', 15, 5, 15, 15, 100, 85, 95, 100, 90, 110, 90, 80);
@@ -55,15 +59,36 @@ function turnDet(){
         myTurn = false;
 }
 
-backgrnd.src = backgrounds[3];
+function nextStage(){
+
+    switch(Stages){
+        case 1: currentWild = Articuno; break;
+        case 2: currentWild = Zapdos; break;
+        case 3: currentWild = Moltres; break;
+        case 4: currentWild = Mewtwo; break;
+    }
+    backgrnd.src = backgrounds[Stages - 1];
+
+    wPokemon.src = pokemons[currentWild.imgNumber];
+    wName.innerHTML = currentWild.name;
+
+    Venusaur.cHP = Venusaur.HP;
+    Charizard.cHP = Charizard.HP;
+    Blastoise.cHP = Blastoise.HP;
+    Pikachu.cHP = Pikachu.HP;
+    currentWild.cHP = currentWild.HP;
+
+    document.getElementById('pwBar').style.width = 120 + "px";
+    document.getElementById('pBar').style.width = 120 + "px";
+}
+
 tPokemon.src = pokemons[currentPokemon.imgNumber];
 tName.innerHTML = currentPokemon.name;
-wPokemon.src = pokemons[currentWild.imgNumber];
-wName.innerHTML = currentWild.name;
 
+nextStage();
 turnDet();
 
 console.log("My Pokemon speed: " + currentPokemon.speed);
 console.log("Wild Pokemon speed: " + currentWild.speed);
 
-message.innerHTML = "What will you do?"; 
+message.innerHTML = "What will " + currentPokemon.name + " do?";
